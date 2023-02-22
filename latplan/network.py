@@ -11,6 +11,8 @@ from .util.tuning    import InvalidHyperparameterError
 from .util.layers    import LinearSchedule
 import os.path
 
+import os
+
 # modified version
 import progressbar
 class DynamicMessage(progressbar.DynamicMessage):
@@ -176,7 +178,7 @@ Each method should call the _save() method of the superclass in turn.
 Users are not expected to call this method directly. Call save() instead.
 Poor python coders cannot enjoy the cleanness of CLOS :before, :after, :around methods."""
         for i, net in enumerate(self.nets):
-            net.save_weights(self.local(os.path.join(path,f"net{i}.h5")))
+            net.save_weights(self.local(os.path.join(path,f"net{i}_{self.parameters['lab_weights']}.h5")))
 
         with open(self.local(os.path.join(path,"aux.json")), "w") as f:
             json.dump({"parameters":self.parameters,
@@ -219,20 +221,18 @@ Users may define a method for each subclass for adding a new load-time feature.
 Each method should call the _load() method of the superclass in turn.
 Users are not expected to call this method directly. Call load() instead.
 Poor python coders cannot enjoy the cleanness of CLOS :before, :after, :around methods."""
-        print("in _load AAAA")
+
         with open(self.local(os.path.join(path,"aux.json")), "r") as f:
-            print("in _load BBB")
             data = json.load(f)
             _params = self.parameters
             self.parameters = data["parameters"]
             self.parameters.update(_params)
             self.build(tuple(data["input_shape"]))
             self.build_aux(tuple(data["input_shape"]))
-        print("in _load CCC")
+
         for i, net in enumerate(self.nets):
-            print("in _load DDDD")
             print("loading the net0.h5 file...")
-            net.load_weights(self.local(os.path.join(path,f"net{i}.h5")))
+            net.load_weights(self.local(os.path.join(path,f"net{i}_{self.parameters['lab_weights']}.h5")))
 
 
     def reload_with_shape(self,input_shape,path=""):
@@ -281,14 +281,15 @@ Poor python coders cannot enjoy the cleanness of CLOS :before, :after, :around m
             if k[:2] == "v_":
                 vlogs[k[2:]] = logs[k]
 
-        f = open(self.path+"/val_metrics.txt", "a")
-        f.write( "[v] "+"  ".join(["{} {:8.3g}".format(k,v) for k,v in sorted(vlogs.items())]) )
-        f.write("\n")
-        f.close()
 
         if (epoch % 10) == 9:
             self.bar.update(epoch+1, status = self.style("[v] "+"  ".join(["{} {:8.3g}".format(k,v) for k,v in sorted(vlogs.items())])) + "\n")
-           
+
+            f = open(self.path+"/val_metrics_"+self.parameters['label']+".txt", "a")
+            f.write( "[v] "+"  ".join(["{} {:8.3g}".format(k,v) for k,v in sorted(vlogs.items())]) )
+            f.write("\n")
+            f.close()
+
         else:
             self.bar.update(epoch+1, status = "[t] "+"  ".join(["{} {:8.3g}".format(k,v) for k,v in sorted(tlogs.items())]))
 
@@ -326,15 +327,10 @@ Poor python coders cannot enjoy the cleanness of CLOS :before, :after, :around m
         """Main method for training.
  This method may be overloaded by the subclass into a specific training method, e.g. GAN training."""
 
-        f = open(self.path+"/val_metrics.txt", "a")
-        f.write("\n")
-        f.write("newTraining")
-        f.write("\n")
-        f.close()
 
         if resume:
             print("resuming the training")
-            self.load(allow_failure=False, path="logs/"+self.parameters["resume_from"])
+            self.load(allow_failure=False, path="")
         else:
             input_shape = train_data.shape[1:]
             self.build(input_shape)
@@ -452,7 +448,10 @@ Poor python coders cannot enjoy the cleanness of CLOS :before, :after, :around m
         try:
             clist.on_train_begin()
             logs = {}
+            compteur=1
             for epoch in range(start_epoch,start_epoch+epoch):
+
+
                 np.random.shuffle(index_array)
                 indices_cache       = [ indices for indices in make_batch(index_array) ]
                 train_data_cache    = [[ train_subdata   [indices] for train_subdata    in train_data    ] for indices in indices_cache ]
@@ -462,6 +461,11 @@ Poor python coders cannot enjoy the cleanness of CLOS :before, :after, :around m
                     for net,train_subdata_batch_cache,train_subdata_to_batch_cache in zip(self.nets, train_subdata_cache,train_subdata_to_cache):
                         net.train_on_batch(train_subdata_batch_cache, train_subdata_to_batch_cache)
 
+                if(epoch%self.parameters["moduloepoch"]==0 and epoch!=0):
+                    self.parameters['lab_weights']=str(self.parameters["round_number"])+"_"+str(epoch)
+                    compteur+=1
+                    self.save()
+
                 logs = {}
                 for k,v in generate_logs(train_data, train_data_to).items():
                     logs["t_"+k] = v
@@ -470,11 +474,15 @@ Poor python coders cannot enjoy the cleanness of CLOS :before, :after, :around m
                 clist.on_epoch_end(epoch,logs)
                 if self.nets[0].stop_training:
                     break
+
+
             clist.on_train_end()
 
         except KeyboardInterrupt:
             print("learning stopped\n")
         finally:
+            #self.parameters['lab_weights']="last"
+            self.parameters['lab_weights']=str(self.parameters["round_number"])+"_"+str(epoch)
             self.save()
             self.loaded = True
 

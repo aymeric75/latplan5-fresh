@@ -57,12 +57,10 @@ def main():
 
 
 
-    #print(total_array_WITH)
-
-    #exit()
 
 
     with open(sys.argv[2]) as file:
+        
         #df = file.read()
         #print(df)
 

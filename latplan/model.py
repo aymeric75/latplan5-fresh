@@ -13,6 +13,7 @@ from keras.optimizers import Adam
 import keras.backend.tensorflow_backend as K
 from keras.callbacks import LambdaCallback, LearningRateScheduler, Callback, CallbackList, ReduceLROnPlateau
 import tensorflow as tf
+
 from .util.noise import gaussian
 from .util.distances import *
 from .util.layers    import *
@@ -1419,8 +1420,8 @@ class BaseActionMixinAMA4Plus(BidirectionalMixin, BaseActionMixin):
         super()._save(path)
         print("saving additional networks")
         import os.path
-        np.savez_compressed(self.local(os.path.join(path,f"p_a_z0_net.npz")),*self.p_a_z0_net[0].get_weights())
-        np.savez_compressed(self.local(os.path.join(path,f"p_a_z1_net.npz")),*self.p_a_z1_net[0].get_weights())
+        np.savez_compressed(self.local(os.path.join(path,f"p_a_z0_net_{self.parameters['lab_weights']}.npz")),*self.p_a_z0_net[0].get_weights())
+        np.savez_compressed(self.local(os.path.join(path,f"p_a_z1_net_{self.parameters['lab_weights']}.npz")),*self.p_a_z1_net[0].get_weights())
 
     def _load(self,path=""):
         # loaded separately so that we can switch between loading or not loading it.
@@ -1430,9 +1431,9 @@ class BaseActionMixinAMA4Plus(BidirectionalMixin, BaseActionMixin):
         print("loading additional networks")
         import os.path
         try:
-            with np.load(self.local(os.path.join(path,f"p_a_z0_net.npz"))) as data:
+            with np.load(self.local(os.path.join(path,f"p_a_z0_net_{self.parameters['lab_weights']}.npz"))) as data:
                 self.p_a_z0_net[0].set_weights([ data[key] for key in data.files ])
-            with np.load(self.local(os.path.join(path,f"p_a_z1_net.npz"))) as data:
+            with np.load(self.local(os.path.join(path,f"p_a_z1_net_{self.parameters['lab_weights']}.npz"))) as data:
                 self.p_a_z1_net[0].set_weights([ data[key] for key in data.files ])
         except FileNotFoundError:
             print("failed to find weights for additional networks")
@@ -1506,45 +1507,70 @@ class BaseActionMixinAMA4Plus(BidirectionalMixin, BaseActionMixin):
 
         # input like [169, 64, "NoneOfThose"]
         def invariant_loss(mutex):
-            
+
+            #mutex = [13, 14, 15]
+
             # 
             themutex = None
             hasNone = False
-            if(mutex[-1] == "NoneOfthem"):
+            if(mutex[-1] == "NoneOfThose"):
                 themutex = mutex[:-1]
                 hasNone=True
             else:
                 themutex = mutex
 
-            # compute the ~(z1^z2^z3) part
-            product1 = tf.ones_like(z[:, :, 0]) # batch_size | prec_succ | index_of_var
-            for var in themutex: # var[0] = index du z, var[1] = value du z
+            ## 1) compute the ~(z1^z2) ^ ~(z1^z3) ^ ~(z2^z3) part  === part1
+            #     (1-z1.z2)(1-z1.z3)(1-z2.z3)
+            part1 = tf.ones_like(z[:, :, 0]) # batch_size | prec/succ | index_of_var
+
+            # val_of_prec_z13 = tf.math.reduce_sum(z[0, 0, 13])
+            # val_of_prec_z14 = tf.math.reduce_sum(z[0, 0, 144])
+            # val_of_prec_z15 = tf.math.reduce_sum(z[0, 0, 155])
+            # val_of_succ_z13 = tf.math.reduce_sum(z[0, 1, 13])
+            # val_of_succ_z14 = tf.math.reduce_sum(z[0, 1, 144])
+            # val_of_succ_z15 = tf.math.reduce_sum(z[0, 1, 155])
+
+            # constructing pairs (all differents) from the mutex array
+            pairs = []
+            for i in range(len(themutex)):
+                for j in range(i+1, len(themutex)):
+                    pairs.append([themutex[i], themutex[j]])
+
+
+            for pair in pairs: # var = index du z
                 #product*z_pre[: int(var)]
-                product1 = tf.math.multiply(product1, z[:, :, int(var)])
+                # 1 - pair[0]*pair[1]
+                el = 1. - tf.math.multiply(z[:, :, int(pair[0])], z[:, :, int(pair[1])])
+                part1 = tf.math.multiply(part1, el)
 
-            product1 = 1. - product1
-            
-            # compute the ~(z1 v z2 v z2) ("NoneOfThem")
-            # ....
-            product2 = tf.ones_like(z[:, :, 0])
+            part1_reduced = tf.math.reduce_sum(part1)
+
+            ## 2) compute the ~(z1 v z2 v z3) ("NoneOfThem") === part2
+            #            (1-z1)(1-z2)(1-z3)
+            part2 = tf.ones_like(z[:, :, 0])
             for var in themutex:
-                product2 = tf.math.multiply(product2, 1. - z[:, :, int(var)])
+                part2 = tf.math.multiply(part2, 1. - z[:, :, int(var)])
 
+            part2_reduced = tf.math.reduce_sum(part2)
+
+
+            #hasNone = True # A COMMENTER !!!!
             if hasNone:
-                truth_value_for_each_ele = tf.math.multiply(product1, product2)
+                # part1 v part2 ==== 1 - (1-part1) . (1-part2)
+                truth_value_for_each_ele = 1. - tf.math.multiply(1. - part1, 1. - part2)
             else:
-                truth_value_for_each_ele = product1
+                truth_value_for_each_ele = part1
 
-            sum_of_ones_over_z = tf.math.reduce_sum(tf.ones_like(truth_value_for_each_ele))
+            sum_of_ones_over_batch_and_precsucc = tf.math.reduce_sum(tf.ones_like(truth_value_for_each_ele))
         
-            nb_violations = sum_of_ones_over_z - tf.math.reduce_sum(truth_value_for_each_ele)
+            truth_value_total = tf.math.reduce_sum(truth_value_for_each_ele) # = sum de truth values
 
+            nb_violations = sum_of_ones_over_batch_and_precsucc - truth_value_total
 
             # % de violations
-            perc_violations = nb_violations / sum_of_ones_over_z
+            perc_violations = nb_violations / sum_of_ones_over_batch_and_precsucc
 
-            print(perc_violations)
-
+            #return truth_value_total, sum_of_ones_over_batch_and_precsucc, perc_violations, val_of_prec_z13, val_of_prec_z14, val_of_prec_z15, val_of_succ_z13, val_of_succ_z14, val_of_succ_z15, part1_reduced, part2_reduced
             return perc_violations
 
 
@@ -1555,11 +1581,17 @@ class BaseActionMixinAMA4Plus(BidirectionalMixin, BaseActionMixin):
         total_add_loss = 0.
 
         
+        val_of_prec_z13 = 999.
+        val_of_prec_z14 = 999.
+        part1_reduced = 999.
+
         if( len(self.parameters["invariants"]) > 0 and "invindex" in self.parameters ):
             has_invariants = True
-            total_add_loss += invariant_loss(self.parameters["invariants"][self.parameters["invindex"]])
-
-
+            for inv in self.parameters["invariants"]:
+                
+                #truth_value_total, sum_of_ones_over_batch_and_precsucc, perc_violations, val_of_prec_z13, val_of_prec_z14, val_of_prec_z15, val_of_succ_z13, val_of_succ_z14, val_of_succ_z15, part1_reduced, part2_reduced = invariant_loss(inv)
+                perc_violations = invariant_loss(inv)
+                total_add_loss += perc_violations
 
         # if("invariants" in self.parameters):
             
@@ -1637,6 +1669,17 @@ class BaseActionMixinAMA4Plus(BidirectionalMixin, BaseActionMixin):
             self.add_metric("total_add_loss_norm", total_add_loss_norm)
             self.add_metric("total_loss", total_loss)
 
+
+            # self.add_metric("val_of_prec_z13", val_of_prec_z13)
+            # self.add_metric("val_of_prec_z14", val_of_prec_z14)
+            # self.add_metric("val_of_prec_z15", val_of_prec_z15)
+            # self.add_metric("val_of_succ_z13", val_of_succ_z13)
+            # self.add_metric("val_of_succ_z14", val_of_succ_z14)
+            # self.add_metric("val_of_succ_z15", val_of_succ_z15)
+
+            self.add_metric("perc_violations", perc_violations)
+           
+            # perc_violations, val_of_prec_z13, val_of_prec_z14, val_of_prec_z15, val_of_succ_z13, val_of_succ_z14, val_of_succ_z15, part1_reduced, part2_reduced
 
         def loss(*args):
             return total_loss

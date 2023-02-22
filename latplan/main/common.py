@@ -129,14 +129,130 @@ def add_common_arguments(subparser,task,objs=False):
                            help="A string which denote the index of the invariant to test")
 
 
-    subparser.add_argument("--nb_of_rounds",
+    subparser.add_argument("--round_number",
                            nargs='?',
                            default="0",
                            help="A string which denote the index of the invariant to test")
 
 
 
+    subparser.add_argument("--lab_weights",
+                           nargs='?',
+                           default="0",
+                           help="A string which denote the label (part of if) to give to the weights files")
+
+
+
+    subparser.add_argument("--moduloepoch",
+                           nargs='?',
+                           default="0",
+                           help="A string which denote modulo epoch for saving the weights")
+
+
+
     return
+
+
+
+def mutexes_from_sas(sas_file):
+        
+    import re
+    import sys
+
+    START_PATTERN = '^begin_variable$'
+    END_PATTERN = '^end_variable$'
+
+
+    dict_vars={}
+    with open(sas_file) as file:
+
+        cc=0 # counter for within the variable
+        between = False
+        
+        tmp_array=[]
+        #counter_var=0
+        key=0
+
+        for line in file:
+
+
+            if re.match(START_PATTERN, line):
+                cc=0
+                tmp_array = []
+                between = True
+                continue
+            elif re.match(END_PATTERN, line):
+                between = False
+                if(len(tmp_array)>0):
+                    dict_vars[key] = tmp_array
+                cc=0
+                continue
+            else:
+                if(between == True):
+
+                    if(cc==0):
+                        
+                        thenumber = re.findall(r'\d+', line)
+                        key=int(thenumber[0])
+                        
+                    if(cc>2):
+                        thenumber = re.findall(r'\d+', line)
+                        if len(thenumber) > 0:
+                            tmp_array.append(str(int(thenumber[0])))
+                        if "none of those" in line:
+                            tmp_array.append("NoneOfThose")
+                    cc+=1
+    file.close()
+
+
+    START_PATTERN = '^begin_mutex_group$'
+    END_PATTERN = '^end_mutex_group$'
+
+    arr_mutexes=[]
+    with open(sas_file) as file:
+
+        cc=0 # counter for within the variable
+        between = False
+        tmp_array=[]
+        key=0
+
+        jj=0
+        for line in file:
+
+            if re.match(START_PATTERN, line):
+                cc=0
+                tmp_array = []
+                between = True
+                continue
+            elif re.match(END_PATTERN, line):
+                between = False
+                if(len(tmp_array)>0):
+                    arr_mutexes.append(tmp_array)
+                cc=0
+                continue
+            else:
+                if(between == True):
+
+                    if(cc>0):
+                        #print(line)
+                        var_number, value_index  = line.split(" ")
+                        
+                        z_index = dict_vars[int(var_number)][int(value_index)]
+
+                        if "none of those" in str(z_index):
+                            print("NONE in a MUTEX !!!!!!!!!!!!!")
+                            exit()
+                        else:
+                            tmp_array.append(z_index)
+                    cc+=1
+            jj+=1
+
+
+    file.close()
+
+
+    return dict_vars, arr_mutexes
+
 
 
 
@@ -291,17 +407,23 @@ def run(path,transitions,extra=None):
     if(args.loadweights != ""):
         parameters["noweights"] = False if (args.loadweights == "True")  else True
 
+    parameters["label"]=""
     if(args.label != ""):
         parameters["label"] = args.label
 
     if(args.nbepochs != ""):
         parameters["epoch"] = int(args.nbepochs)
 
+    if(args.lab_weights != ""):
+        parameters["lab_weights"] = args.lab_weights
 
     parameters["invindex"]=0
-    if args.invindex != "":
+    if args.invindex != "" and args.invindex != None:
         parameters["invindex"]=int(args.invindex)
 
+    parameters["moduloepoch"] = 200
+    if args.moduloepoch != "" and args.moduloepoch != None:
+        parameters["moduloepoch"]=int(args.moduloepoch)
 
     if 'report' in args.mode:
 
@@ -330,79 +452,61 @@ def run(path,transitions,extra=None):
 
     if 'learn' in args.mode:
 
+        #print(os.getcwd())
 
-        nb_of_rounds=1
-        if args.nb_of_rounds != "":
-            nb_of_rounds=int(args.nb_of_rounds)
-
+        dict_vars, arr_mutexes = mutexes_from_sas(path_to_json+"/output.sas")
 
 
-        tab_invs = []
+        mutexes_to_send = []
 
-        #print(path_to_json)
+        # adding eles from dict_vars
+        for k, m in dict_vars.items():  
+            if not (len(m) == 2 and m[0] == m[1]) and m not in mutexes_to_send:
+                mutexes_to_send.append(m)
 
-        if(os.path.exists(path_to_json+"/found_variables_"+args.label+".txt")):
+        # adding eles from arr_mutexes
+        for ele in arr_mutexes:
+            if ele not in mutexes_to_send:
+                mutexes_to_send.append(ele)
 
-            with open(path_to_json+"/found_variables_"+args.label+".txt") as f:
-                content = f.read()
-                arr_content = content.split("#")
 
-                for substr in arr_content:
 
-                    sub_tab_invs = []
-
-                    for c in substr.split("\n"):
-                        
-                        if(c != ""):
-                            print(c)
-                            sub_tab_invs.append(c)
-
-                    tab_invs.append(sub_tab_invs)
-
-            f.close()
-
-        tab_invs = []
-
-        # print("tab_invs")
-        # print(tab_invs)
+        print(mutexes_to_send)
         
+
+        round_number=1
+        if args.round_number != "":
+            round_number=int(args.round_number)
+            parameters["round_number"]=round_number
 
         # tab_invs
-        parameters["invariants"] = tab_invs
-
+        parameters["invariants"] = mutexes_to_send
+        #parameters["invariants"] = []
         parameters["time_start"] = args.hash
-
         parameters["batch_size"] = 400
 
-        # test_data = test
 
 
+        seed(2+round_number)
 
-        f = open(path+"/val_metrics.txt", "w")
-        f.write("")
+
+        #f = open(path+"/val_metrics_"+parameters["label"]+".txt", "a")
+        f = open(path+"/val_metrics_"+parameters["label"]+".txt", "a")
+        f.write("\n")
+        f.write("seed = "+str(2+round_number))
+        f.write("\n")
         f.close()
 
-        print("U1 ")
-
-        nb_of_rounds=1
 
 
-        
-        for i in range(nb_of_rounds):
+        task = curry(nn_task, latplan.model.get(parameters["aeclass"]), path, train, train, val, val, parameters, False) 
+        task()
 
-
-            print("U2 ")
-
-            seed(2+i)
-
-            task = curry(nn_task, latplan.model.get(parameters["aeclass"]), path, train, train, val, val, parameters, False) 
-            task()
-
-            f = open(path+"/val_metrics.txt", "a")
-            f.write("\n")
-            f.write("newTraining")
-            f.write("\n")
-            f.close()
+        f = open(path+"/val_metrics_"+parameters["label"]+".txt", "a")
+        f.write("\n")
+        f.write("End Training")
+        f.write("\n")
+        f.close()
 
 
 

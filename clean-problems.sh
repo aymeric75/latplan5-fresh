@@ -1,7 +1,9 @@
 #!/bin/bash
 
 
-cd problem-generators/backup-propositional/
+pwdd=$(pwd)
+
+cd $pwdd/problem-generators/backup-propositional/
 
 shopt -s extglob
 

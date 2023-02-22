@@ -1,73 +1,2470 @@
 Default float: float32
-{'mode': 'learn', 'type': 'mnist', 'width': 3, 'height': 3, 'num_examples': 5000, 'aeclass': 'CubeSpaceAE_AMA4Conv', 'comment': 'kltune2', 'hash': '05-06T11:21:55.052', 'label': '', 'loadweights': 'True', 'nbepochs': '2000', 'invindex': '0', 'nb_of_rounds': '0'}
+{'mode': 'dump', 'type': 'mnist', 'width': 3, 'height': 3, 'num_examples': 5000, 'aeclass': 'CubeSpaceAE_AMA4Conv', 'comment': 'kltune2', 'hash': '05-06T11:21:55.052', 'label': '', 'loadweights': 'False', 'nbepochs': '1000', 'invindex': '0', 'round_number': '0', 'lab_weights': '1_1600', 'moduloepoch': '0'}
 loaded. picsize: [48, 48]
 (5000, 2, 48, 48, 1)
 normalized shape: (48, 48, 1) (48, 48, 1)
-U1 
-U2 
-class precedence list:
-  <class 'latplan.model.ConvolutionalConcreteDetNormalizedLogitAddBidirectionalTransitionAEPlus'>
-  <class 'latplan.mixins.encoder_decoder.StridedConvolutionalMixin'>
-  <class 'latplan.mixins.encoder_decoder.ConvolutionalMixin'>
-  <class 'latplan.model.ConcreteDetNormalizedLogitAddBidirectionalTransitionAEPlus'>
-  <class 'latplan.model.DetActionMixin'>
-  <class 'latplan.model.NormalizedLogitAddBidirectionalMixin'>
-  <class 'latplan.model.NormalizedLogitAddPreconditionMixin'>
-  <class 'latplan.model.NormalizedLogitAddEffectMixin'>
-  <class 'latplan.model.LogitEffectMixin'>
-  <class 'latplan.model.BaseActionMixinAMA4Plus'>
-  <class 'latplan.model.BidirectionalMixin'>
-  <class 'latplan.model.PreconditionMixin'>
-  <class 'latplan.model.EffectMixin'>
-  <class 'latplan.model.BaseActionMixin'>
-  <class 'latplan.model.TransitionWrapper'>
-  <class 'latplan.model.StateAE'>
-  <class 'latplan.mixins.latent.ConcreteLatentMixin'>
-  <class 'latplan.model.EarlyStopMixin'>
-  <class 'latplan.mixins.encoder_decoder.FullConnectedMixin'>
-  <class 'latplan.mixins.encoder_decoder.EncoderDecoderMixin'>
-  <class 'latplan.model.AE'>
-  <class 'latplan.network.Network'>
-  <class 'object'>
-clearning tf session
-cleared tf session
+Loading networks from samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/ (with failure allowed)
 Building networks
 building a convolutional encoder
 pool per layer: 1 depth: 2 total pool: 1 H: 48 W: 48 dH: 0 dW: 0
-<keras.layers.convolutional.Conv2D object at 0x14cae23073d0>
-[0, 48, 48, 1] -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2D object at 0x14cae23073d0>
-<keras.layers.normalization.BatchNormalization object at 0x14cae2307b50>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14cae2307b50>
-<keras.layers.core.Dropout object at 0x14cae23078d0>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14cae23078d0>
-<keras.layers.convolutional.Conv2D object at 0x14cae2307ad0>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2D object at 0x14cae2307ad0>
-<keras.layers.normalization.BatchNormalization object at 0x14cae2307f50>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14cae2307f50>
-<keras.layers.core.Dropout object at 0x14cae2307f90>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14cae2307f90>
+<keras.layers.convolutional.Conv2D object at 0x152559475d90>
+[0, 48, 48, 1] -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2D object at 0x152559475d90>
+<keras.layers.normalization.BatchNormalization object at 0x1525593fb750>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x1525593fb750>
+<keras.layers.core.Dropout object at 0x1525593fb4d0>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x1525593fb4d0>
+<keras.layers.convolutional.Conv2D object at 0x1525593fb6d0>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2D object at 0x1525593fb6d0>
+<keras.layers.normalization.BatchNormalization object at 0x1525593fbb50>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x1525593fbb50>
+<keras.layers.core.Dropout object at 0x1525593fb950>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x1525593fb950>
 latent space shape is (48, 48, 32) : 300 propositions in total
 building a convolutional decoder
 pool per layer: 1 depth: 2 total pool: 1 H: 48 W: 48 dH: 0 dW: 0
-<keras.layers.core.Reshape object at 0x14cae23218d0>
-[0, 48, 48, 32] -> (0, 48, 48, 32) : <keras.layers.core.Reshape object at 0x14cae23218d0>
-<keras.layers.convolutional.Conv2DTranspose object at 0x14cae2321a10>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2DTranspose object at 0x14cae2321a10>
-<keras.layers.normalization.BatchNormalization object at 0x14cae2328110>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14cae2328110>
-<keras.layers.core.Dropout object at 0x14cae2328190>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14cae2328190>
-<keras.layers.convolutional.Conv2DTranspose object at 0x14cae23281d0>
-(0, 48, 48, 32) -> (0, 48, 48, 1) : <keras.layers.convolutional.Conv2DTranspose object at 0x14cae23281d0>
+<keras.layers.core.Reshape object at 0x152559404250>
+[0, 48, 48, 32] -> (0, 48, 48, 32) : <keras.layers.core.Reshape object at 0x152559404250>
+<keras.layers.convolutional.Conv2DTranspose object at 0x152559404610>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2DTranspose object at 0x152559404610>
+<keras.layers.normalization.BatchNormalization object at 0x152559404dd0>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x152559404dd0>
+<keras.layers.core.Dropout object at 0x152559404910>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x152559404910>
+<keras.layers.convolutional.Conv2DTranspose object at 0x152559404d10>
+(0, 48, 48, 32) -> (0, 48, 48, 1) : <keras.layers.convolutional.Conv2DTranspose object at 0x152559404d10>
 Network built
 Building auxiliary networks
 Auxiliary network built
-Compiling networks
-there are 1 networks.
-there are 1 optimizers.
-there are 1 losses.
-compiling <keras.engine.training.Model object at 0x14cae1afe910> with <keras_radam.optimizers.RAdam object at 0x14cae15013d0>, <function BaseActionMixinAMA4Plus._build_primary.<locals>.loss at 0x14cae1b013b0>.
-Network compiled
-Saving the network to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/
-saving additional networks
-Network saved
+loading the net0.h5 file...
+loading additional networks
+Network loaded
+[1 0 0 ... 2 0 0]
+1762
+Saving to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/available_actions.csv
+Saving to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/action_add4.csv
+Saving to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/action_del4.csv
+Saving to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/action_add4+ids.csv
+Saving to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/action_del4+ids.csv
+Saving to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/action_pos4.csv
+Saving to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/action_neg4.csv
+Saving to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/action_pos4+ids.csv
+Saving to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/action_neg4+ids.csv
+make: Entering directory '/g100_work/uBS21_InfGer_0/latplan5-fresh/lisp'
+make: Nothing to be done for 'all'.
+make: Leaving directory '/g100_work/uBS21_InfGer_0/latplan5-fresh/lisp'
+vanilla/hanoi-3-9
+005-000
+005-001
+005-002
+005-003
+005-004
+005-005
+005-006
+005-007
+005-008
+005-009
+005-010
+005-011
+005-012
+005-013
+005-014
+005-015
+005-016
+005-017
+005-018
+005-019
+005-000/
+005-001/
+005-002/
+005-003/
+005-004/
+005-005/
+005-006/
+005-007/
+005-008/
+005-009/
+005-010/
+005-011/
+005-012/
+005-013/
+005-014/
+005-015/
+005-016/
+005-017/
+005-018/
+005-019/
+vanilla/hanoi-4-4
+hanoi-3-9
+hanoi-4-4
+hanoi-4-9
+hanoi-5-5
+hanoi-5-9
+hanoi-6-6
+hanoi-7-7
+lightsout-digital-5
+lightsout-twisted-5
+prob-cylinders-4
+puzzle_longest-mnist-3-3
+puzzle-mandrill-4-4
+puzzle-mnist-3-3
+puzzle_random_goal-mnist-3-3
+sokoban-2-False
+sokoban_pddl-2-False
+hanoi-3-9/
+hanoi-4-4/
+hanoi-4-9/
+hanoi-5-5/
+hanoi-5-9/
+hanoi-6-6/
+hanoi-7-7/
+lightsout-digital-5/
+lightsout-twisted-5/
+prob-cylinders-4/
+puzzle_longest-mnist-3-3/
+puzzle-mandrill-4-4/
+puzzle-mnist-3-3/
+puzzle_random_goal-mnist-3-3/
+sokoban-2-False/
+sokoban_pddl-2-False/
+vanilla/hanoi-4-9
+007-000
+007-001
+007-002
+007-003
+007-004
+007-005
+007-006
+007-007
+007-008
+007-009
+007-010
+007-011
+007-012
+007-013
+007-014
+007-015
+007-016
+007-017
+007-018
+007-019
+007-000/
+007-001/
+007-002/
+007-003/
+007-004/
+007-005/
+007-006/
+007-007/
+007-008/
+007-009/
+007-010/
+007-011/
+007-012/
+007-013/
+007-014/
+007-015/
+007-016/
+007-017/
+007-018/
+007-019/
+vanilla/hanoi-5-5
+hanoi-3-9
+hanoi-4-4
+hanoi-4-9
+hanoi-5-5
+hanoi-5-9
+hanoi-6-6
+hanoi-7-7
+lightsout-digital-5
+lightsout-twisted-5
+prob-cylinders-4
+puzzle_longest-mnist-3-3
+puzzle-mandrill-4-4
+puzzle-mnist-3-3
+puzzle_random_goal-mnist-3-3
+sokoban-2-False
+sokoban_pddl-2-False
+hanoi-3-9/
+hanoi-4-4/
+hanoi-4-9/
+hanoi-5-5/
+hanoi-5-9/
+hanoi-6-6/
+hanoi-7-7/
+lightsout-digital-5/
+lightsout-twisted-5/
+prob-cylinders-4/
+puzzle_longest-mnist-3-3/
+puzzle-mandrill-4-4/
+puzzle-mnist-3-3/
+puzzle_random_goal-mnist-3-3/
+sokoban-2-False/
+sokoban_pddl-2-False/
+vanilla/hanoi-5-9
+007-000
+007-001
+007-002
+007-003
+007-004
+007-005
+007-006
+007-007
+007-008
+007-009
+007-010
+007-011
+007-012
+007-013
+007-014
+007-015
+007-016
+007-017
+007-018
+007-019
+007-000/
+007-001/
+007-002/
+007-003/
+007-004/
+007-005/
+007-006/
+007-007/
+007-008/
+007-009/
+007-010/
+007-011/
+007-012/
+007-013/
+007-014/
+007-015/
+007-016/
+007-017/
+007-018/
+007-019/
+vanilla/hanoi-6-6
+hanoi-3-9
+hanoi-4-4
+hanoi-4-9
+hanoi-5-5
+hanoi-5-9
+hanoi-6-6
+hanoi-7-7
+lightsout-digital-5
+lightsout-twisted-5
+prob-cylinders-4
+puzzle_longest-mnist-3-3
+puzzle-mandrill-4-4
+puzzle-mnist-3-3
+puzzle_random_goal-mnist-3-3
+sokoban-2-False
+sokoban_pddl-2-False
+hanoi-3-9/
+hanoi-4-4/
+hanoi-4-9/
+hanoi-5-5/
+hanoi-5-9/
+hanoi-6-6/
+hanoi-7-7/
+lightsout-digital-5/
+lightsout-twisted-5/
+prob-cylinders-4/
+puzzle_longest-mnist-3-3/
+puzzle-mandrill-4-4/
+puzzle-mnist-3-3/
+puzzle_random_goal-mnist-3-3/
+sokoban-2-False/
+sokoban_pddl-2-False/
+vanilla/hanoi-7-7
+007-000
+007-001
+007-002
+007-003
+007-004
+007-005
+007-006
+007-007
+007-008
+007-009
+007-010
+007-011
+007-012
+007-013
+007-014
+007-015
+007-016
+007-017
+007-018
+007-019
+007-000/
+007-001/
+007-002/
+007-003/
+007-004/
+007-005/
+007-006/
+007-007/
+007-008/
+007-009/
+007-010/
+007-011/
+007-012/
+007-013/
+007-014/
+007-015/
+007-016/
+007-017/
+007-018/
+007-019/
+vanilla/lightsout-digital-5
+hanoi-3-9
+hanoi-4-4
+hanoi-4-9
+hanoi-5-5
+hanoi-5-9
+hanoi-6-6
+hanoi-7-7
+lightsout-digital-5
+lightsout-twisted-5
+prob-cylinders-4
+puzzle_longest-mnist-3-3
+puzzle-mandrill-4-4
+puzzle-mnist-3-3
+puzzle_random_goal-mnist-3-3
+sokoban-2-False
+sokoban_pddl-2-False
+hanoi-3-9/
+hanoi-4-4/
+hanoi-4-9/
+hanoi-5-5/
+hanoi-5-9/
+hanoi-6-6/
+hanoi-7-7/
+lightsout-digital-5/
+lightsout-twisted-5/
+prob-cylinders-4/
+puzzle_longest-mnist-3-3/
+puzzle-mandrill-4-4/
+puzzle-mnist-3-3/
+puzzle_random_goal-mnist-3-3/
+sokoban-2-False/
+sokoban_pddl-2-False/
+vanilla/lightsout-twisted-5
+007-000
+007-001
+007-002
+007-003
+007-004
+007-005
+007-006
+007-007
+007-008
+007-009
+007-010
+007-011
+007-012
+007-013
+007-014
+007-015
+007-016
+007-017
+007-018
+007-019
+014-000
+014-001
+014-002
+014-003
+014-004
+014-005
+014-006
+014-007
+014-008
+014-009
+014-010
+014-011
+014-012
+014-013
+014-014
+014-015
+014-016
+014-017
+014-018
+014-019
+007-000/
+007-001/
+007-002/
+007-003/
+007-004/
+007-005/
+007-006/
+007-007/
+007-008/
+007-009/
+007-010/
+007-011/
+007-012/
+007-013/
+007-014/
+007-015/
+007-016/
+007-017/
+007-018/
+007-019/
+014-000/
+014-001/
+014-002/
+014-003/
+014-004/
+014-005/
+014-006/
+014-007/
+014-008/
+014-009/
+014-010/
+014-011/
+014-012/
+014-013/
+014-014/
+014-015/
+014-016/
+014-017/
+014-018/
+014-019/
+vanilla/prob-cylinders-4
+hanoi-3-9
+hanoi-4-4
+hanoi-4-9
+hanoi-5-5
+hanoi-5-9
+hanoi-6-6
+hanoi-7-7
+lightsout-digital-5
+lightsout-twisted-5
+prob-cylinders-4
+puzzle_longest-mnist-3-3
+puzzle-mandrill-4-4
+puzzle-mnist-3-3
+puzzle_random_goal-mnist-3-3
+sokoban-2-False
+sokoban_pddl-2-False
+hanoi-3-9/
+hanoi-4-4/
+hanoi-4-9/
+hanoi-5-5/
+hanoi-5-9/
+hanoi-6-6/
+hanoi-7-7/
+lightsout-digital-5/
+lightsout-twisted-5/
+prob-cylinders-4/
+puzzle_longest-mnist-3-3/
+puzzle-mandrill-4-4/
+puzzle-mnist-3-3/
+puzzle_random_goal-mnist-3-3/
+sokoban-2-False/
+sokoban_pddl-2-False/
+vanilla/puzzle_longest-mnist-3-3
+007-000
+007-001
+007-002
+007-003
+007-004
+007-005
+007-000/
+007-001/
+007-002/
+007-003/
+007-004/
+007-005/
+vanilla/puzzle-mandrill-4-4
+hanoi-3-9
+hanoi-4-4
+hanoi-4-9
+hanoi-5-5
+hanoi-5-9
+hanoi-6-6
+hanoi-7-7
+lightsout-digital-5
+lightsout-twisted-5
+prob-cylinders-4
+puzzle_longest-mnist-3-3
+puzzle-mandrill-4-4
+puzzle-mnist-3-3
+puzzle_random_goal-mnist-3-3
+sokoban-2-False
+sokoban_pddl-2-False
+hanoi-3-9/
+hanoi-4-4/
+hanoi-4-9/
+hanoi-5-5/
+hanoi-5-9/
+hanoi-6-6/
+hanoi-7-7/
+lightsout-digital-5/
+lightsout-twisted-5/
+prob-cylinders-4/
+puzzle_longest-mnist-3-3/
+puzzle-mandrill-4-4/
+puzzle-mnist-3-3/
+puzzle_random_goal-mnist-3-3/
+sokoban-2-False/
+sokoban_pddl-2-False/
+vanilla/puzzle-mnist-3-3
+007-000
+007-001
+007-002
+007-003
+007-004
+007-005
+007-006
+007-007
+007-008
+007-009
+007-010
+007-011
+007-012
+007-013
+007-014
+007-015
+007-016
+007-017
+007-018
+007-019
+014-000
+014-001
+014-002
+014-003
+014-004
+014-005
+014-006
+014-007
+014-008
+014-009
+014-010
+014-011
+014-012
+014-013
+014-014
+014-015
+014-016
+014-017
+014-018
+014-019
+007-000/
+007-001/
+007-002/
+007-003/
+007-004/
+007-005/
+007-006/
+007-007/
+007-008/
+007-009/
+007-010/
+007-011/
+007-012/
+007-013/
+007-014/
+007-015/
+007-016/
+007-017/
+007-018/
+007-019/
+014-000/
+014-001/
+014-002/
+014-003/
+014-004/
+014-005/
+014-006/
+014-007/
+014-008/
+014-009/
+014-010/
+014-011/
+014-012/
+014-013/
+014-014/
+014-015/
+014-016/
+014-017/
+014-018/
+014-019/
+vanilla/puzzle_random_goal-mnist-3-3
+hanoi-3-9
+hanoi-4-4
+hanoi-4-9
+hanoi-5-5
+hanoi-5-9
+hanoi-6-6
+hanoi-7-7
+lightsout-digital-5
+lightsout-twisted-5
+prob-cylinders-4
+puzzle_longest-mnist-3-3
+puzzle-mandrill-4-4
+puzzle-mnist-3-3
+puzzle_random_goal-mnist-3-3
+sokoban-2-False
+sokoban_pddl-2-False
+hanoi-3-9/
+hanoi-4-4/
+hanoi-4-9/
+hanoi-5-5/
+hanoi-5-9/
+hanoi-6-6/
+hanoi-7-7/
+lightsout-digital-5/
+lightsout-twisted-5/
+prob-cylinders-4/
+puzzle_longest-mnist-3-3/
+puzzle-mandrill-4-4/
+puzzle-mnist-3-3/
+puzzle_random_goal-mnist-3-3/
+sokoban-2-False/
+sokoban_pddl-2-False/
+vanilla/sokoban-2-False
+007-000
+007-001
+007-002
+007-003
+007-004
+007-005
+007-006
+007-007
+007-008
+007-009
+007-010
+007-011
+007-012
+007-013
+007-014
+007-015
+007-016
+007-017
+007-018
+007-019
+014-000
+014-001
+014-002
+014-003
+014-004
+014-005
+014-006
+014-007
+014-008
+014-009
+014-010
+014-011
+014-012
+014-013
+014-014
+014-015
+014-016
+014-017
+014-018
+014-019
+007-000/
+007-001/
+007-002/
+007-003/
+007-004/
+007-005/
+007-006/
+007-007/
+007-008/
+007-009/
+007-010/
+007-011/
+007-012/
+007-013/
+007-014/
+007-015/
+007-016/
+007-017/
+007-018/
+007-019/
+014-000/
+014-001/
+014-002/
+014-003/
+014-004/
+014-005/
+014-006/
+014-007/
+014-008/
+014-009/
+014-010/
+014-011/
+014-012/
+014-013/
+014-014/
+014-015/
+014-016/
+014-017/
+014-018/
+014-019/
+vanilla/sokoban_pddl-2-False
+hanoi-3-9
+hanoi-4-4
+hanoi-4-9
+hanoi-5-5
+hanoi-5-9
+hanoi-6-6
+hanoi-7-7
+lightsout-digital-5
+lightsout-twisted-5
+prob-cylinders-4
+puzzle_longest-mnist-3-3
+puzzle-mandrill-4-4
+puzzle-mnist-3-3
+puzzle_random_goal-mnist-3-3
+sokoban-2-False
+sokoban_pddl-2-False
+hanoi-3-9/
+hanoi-4-4/
+hanoi-4-9/
+hanoi-5-5/
+hanoi-5-9/
+hanoi-6-6/
+hanoi-7-7/
+lightsout-digital-5/
+lightsout-twisted-5/
+prob-cylinders-4/
+puzzle_longest-mnist-3-3/
+puzzle-mandrill-4-4/
+puzzle-mnist-3-3/
+puzzle_random_goal-mnist-3-3/
+sokoban-2-False/
+sokoban_pddl-2-False/
+AA2 
+Default float: float32
+in ama3-planner 1
+samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052
+@[     0.483 +     0.483] loaded puzzle
+Loading networks from samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/ (with failure allowed)
+Building networks
+building a convolutional encoder
+pool per layer: 1 depth: 2 total pool: 1 H: 48 W: 48 dH: 0 dW: 0
+<keras.layers.convolutional.Conv2D object at 0x14a10bd0e750>
+[0, 48, 48, 1] -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2D object at 0x14a10bd0e750>
+<keras.layers.normalization.BatchNormalization object at 0x14a10bd0ef90>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14a10bd0ef90>
+<keras.layers.core.Dropout object at 0x14a10bd0efd0>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14a10bd0efd0>
+<keras.layers.convolutional.Conv2D object at 0x14a10bc4e150>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2D object at 0x14a10bc4e150>
+<keras.layers.normalization.BatchNormalization object at 0x14a10bc4e3d0>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14a10bc4e3d0>
+<keras.layers.core.Dropout object at 0x14a10bc4e1d0>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14a10bc4e1d0>
+latent space shape is (48, 48, 32) : 300 propositions in total
+building a convolutional decoder
+pool per layer: 1 depth: 2 total pool: 1 H: 48 W: 48 dH: 0 dW: 0
+<keras.layers.core.Reshape object at 0x14a10bc4eb50>
+[0, 48, 48, 32] -> (0, 48, 48, 32) : <keras.layers.core.Reshape object at 0x14a10bc4eb50>
+<keras.layers.convolutional.Conv2DTranspose object at 0x14a10bc4ef10>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2DTranspose object at 0x14a10bc4ef10>
+<keras.layers.normalization.BatchNormalization object at 0x14a10bc55290>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14a10bc55290>
+<keras.layers.core.Dropout object at 0x14a10bc55610>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14a10bc55610>
+<keras.layers.convolutional.Conv2DTranspose object at 0x14a10bc55650>
+(0, 48, 48, 32) -> (0, 48, 48, 1) : <keras.layers.convolutional.Conv2DTranspose object at 0x14a10bc55650>
+Network built
+Building auxiliary networks
+Auxiliary network built
+loading the net0.h5 file...
+loading additional networks
+Network loaded
+@[     6.222 +     5.740] loaded sae
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-003
+in ama3-planner 2
+@[     6.223 +     0.000] loaded puzzle 2
+@[     6.223 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.930058561328005 max: 2.9983655876925748
+init (recon) min: -1.9378982 max: 2.9321117
+init MSE: 0.00031707068364938745
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327732304603444
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-003/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    14.983 +     8.761] loaded init/goal
+@[    14.983 +     0.000] start planning
+@[    14.984 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-003/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-003/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-003/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-003/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    15.202 +     0.219] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-012
+in ama3-planner 2
+@[    15.202 +     0.000] loaded puzzle 2
+@[    15.202 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9381339643739712 max: 3.156333117788307
+init (recon) min: -1.9419757 max: 2.9636803
+init MSE: 0.00030300477650844256
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327710978392047
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-012/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    17.554 +     2.352] loaded init/goal
+@[    17.554 +     0.000] start planning
+@[    17.554 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-012/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-012/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-012/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-012/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    17.727 +     0.173] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-018
+in ama3-planner 2
+@[    17.727 +     0.000] loaded puzzle 2
+@[    17.727 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9382502640929606 max: 3.222899560832561
+init (recon) min: -1.9368962 max: 2.9782686
+init MSE: 0.00028079070609999526
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232771848189289
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-018/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    19.950 +     2.223] loaded init/goal
+@[    19.950 +     0.000] start planning
+@[    19.950 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-018/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-018/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-018/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-018/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    20.124 +     0.173] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-019
+in ama3-planner 2
+@[    20.124 +     0.000] loaded puzzle 2
+@[    20.124 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.146440791804289 max: 3.158903413052018
+init (recon) min: -2.0809884 max: 3.1534657
+init MSE: 0.0002987047660928769
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327710099721224
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-019/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    22.574 +     2.450] loaded init/goal
+@[    22.574 +     0.000] start planning
+@[    22.574 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-019/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-019/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-019/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-019/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    22.768 +     0.194] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-014
+in ama3-planner 2
+@[    22.768 +     0.000] loaded puzzle 2
+@[    22.768 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9381339643739712 max: 3.216307662910465
+init (recon) min: -1.9629278 max: 3.0714388
+init MSE: 0.00034967346272650967
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327713112166915
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-014/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    25.096 +     2.328] loaded init/goal
+@[    25.096 +     0.000] start planning
+@[    25.096 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-014/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-014/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-014/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-014/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    25.269 +     0.173] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-010
+in ama3-planner 2
+@[    25.269 +     0.000] loaded puzzle 2
+@[    25.269 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.893664656073086 max: 2.98708609222151
+init (recon) min: -1.9205536 max: 2.932242
+init MSE: 0.00035057448929248173
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327713987084956
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-010/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    27.820 +     2.550] loaded init/goal
+@[    27.820 +     0.000] start planning
+@[    27.820 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-010/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-010/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-010/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-010/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    27.998 +     0.178] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-017
+in ama3-planner 2
+@[    27.998 +     0.000] loaded puzzle 2
+@[    27.998 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.930058561328005 max: 3.216307662910465
+init (recon) min: -1.9543065 max: 3.0456233
+init MSE: 0.0003557098400414178
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232770812510941
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-017/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    30.487 +     2.489] loaded init/goal
+@[    30.487 +     0.000] start planning
+@[    30.487 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-017/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-017/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-017/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-017/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    30.663 +     0.175] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-001
+in ama3-planner 2
+@[    30.663 +     0.000] loaded puzzle 2
+@[    30.663 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.146440791804289 max: 3.158903413052018
+init (recon) min: -2.1015592 max: 3.1588855
+init MSE: 0.00027095856725460886
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232771955410336
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-001/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    33.367 +     2.704] loaded init/goal
+@[    33.367 +     0.000] start planning
+@[    33.367 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-001/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-001/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-001/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-001/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    33.539 +     0.172] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-014
+in ama3-planner 2
+@[    33.539 +     0.000] loaded puzzle 2
+@[    33.539 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.146440791804289 max: 3.158903413052018
+init (recon) min: -2.087586 max: 3.098927
+init MSE: 0.0002905311657493897
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327707792256604
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-014/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    36.254 +     2.715] loaded init/goal
+@[    36.254 +     0.000] start planning
+@[    36.254 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-014/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-014/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-014/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-014/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    36.427 +     0.173] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-018
+in ama3-planner 2
+@[    36.427 +     0.000] loaded puzzle 2
+@[    36.427 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.054078381981629 max: 3.0885530863866615
+init (recon) min: -2.0700765 max: 3.1058493
+init MSE: 0.0003616629030473975
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327715622089
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-018/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    39.057 +     2.630] loaded init/goal
+@[    39.057 +     0.000] start planning
+@[    39.057 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-018/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-018/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-018/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-018/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    39.231 +     0.174] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-016
+in ama3-planner 2
+@[    39.232 +     0.000] loaded puzzle 2
+@[    39.232 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.146440791804289 max: 3.158903413052018
+init (recon) min: -2.1115685 max: 3.1516156
+init MSE: 0.0002942088802017985
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232771574532068
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-016/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    42.116 +     2.884] loaded init/goal
+@[    42.116 +     0.000] start planning
+@[    42.116 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-016/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-016/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-016/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-016/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    42.289 +     0.174] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-005
+in ama3-planner 2
+@[    42.290 +     0.000] loaded puzzle 2
+@[    42.290 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.054078381981629 max: 3.1288707891593632
+init (recon) min: -2.057263 max: 3.1134787
+init MSE: 0.00027775505372240394
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327724653673554
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-005/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    44.965 +     2.676] loaded init/goal
+@[    44.965 +     0.000] start planning
+@[    44.965 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-005/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-005/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-005/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-005/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    45.140 +     0.174] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-011
+in ama3-planner 2
+@[    45.140 +     0.000] loaded puzzle 2
+@[    45.140 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9381339643739712 max: 3.156333117788307
+init (recon) min: -1.9546627 max: 2.9405656
+init MSE: 0.00031914552681850175
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327710723930464
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-011/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    48.082 +     2.942] loaded init/goal
+@[    48.082 +     0.000] start planning
+@[    48.082 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-011/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-011/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-011/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-011/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    48.270 +     0.188] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-002
+in ama3-planner 2
+@[    48.271 +     0.000] loaded puzzle 2
+@[    48.271 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.125108357064033 max: 3.149249323008702
+init (recon) min: -2.0926356 max: 3.1588912
+init MSE: 0.0003044435345910162
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232770636463256
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-002/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    51.123 +     2.852] loaded init/goal
+@[    51.123 +     0.000] start planning
+@[    51.123 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-002/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-002/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-002/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-002/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    51.299 +     0.176] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-004
+in ama3-planner 2
+@[    51.299 +     0.000] loaded puzzle 2
+@[    51.299 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.146440791804289 max: 3.158903413052018
+init (recon) min: -2.108983 max: 3.1576633
+init MSE: 0.0002875246863789977
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232771622731099
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-004/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    54.335 +     3.035] loaded init/goal
+@[    54.335 +     0.000] start planning
+@[    54.335 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-004/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-004/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-004/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-004/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    54.509 +     0.175] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-012
+in ama3-planner 2
+@[    54.510 +     0.000] loaded puzzle 2
+@[    54.510 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.930058561328005 max: 2.98708609222151
+init (recon) min: -1.9568042 max: 2.9324207
+init MSE: 0.0003889866574009641
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.000323277073300626
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-012/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    57.653 +     3.144] loaded init/goal
+@[    57.653 +     0.000] start planning
+@[    57.654 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-012/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-012/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-012/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-012/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    57.842 +     0.188] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-003
+in ama3-planner 2
+@[    57.842 +     0.000] loaded puzzle 2
+@[    57.842 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.125108357064033 max: 3.216307662910465
+init (recon) min: -2.130002 max: 3.1763473
+init MSE: 0.00032579778245721096
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327714957954175
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-003/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    60.970 +     3.128] loaded init/goal
+@[    60.970 +     0.000] start planning
+@[    60.970 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-003/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-003/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-003/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-003/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    61.146 +     0.176] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-000
+in ama3-planner 2
+@[    61.146 +     0.000] loaded puzzle 2
+@[    61.146 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.146440791804289 max: 3.158903413052018
+init (recon) min: -2.116066 max: 3.1402516
+init MSE: 0.0003428837335530614
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232772350327901
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-000/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    64.180 +     3.034] loaded init/goal
+@[    64.180 +     0.000] start planning
+@[    64.180 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-000/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-000/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-000/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-000/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    64.354 +     0.174] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-009
+in ama3-planner 2
+@[    64.354 +     0.000] loaded puzzle 2
+@[    64.354 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.125108357064033 max: 3.149249323008702
+init (recon) min: -2.1330485 max: 3.1702347
+init MSE: 0.0003563570854039017
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232770859348483
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-009/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    67.593 +     3.239] loaded init/goal
+@[    67.593 +     0.000] start planning
+@[    67.593 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-009/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-009/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-009/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-009/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    67.779 +     0.186] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-008
+in ama3-planner 2
+@[    67.779 +     0.000] loaded puzzle 2
+@[    67.779 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.930058561328005 max: 3.216307662910465
+init (recon) min: -1.9647354 max: 3.0613503
+init MSE: 0.0003302896302350472
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327716016160453
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-008/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    71.040 +     3.261] loaded init/goal
+@[    71.040 +     0.000] start planning
+@[    71.041 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-008/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-008/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-008/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-008/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    71.215 +     0.175] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-011
+in ama3-planner 2
+@[    71.215 +     0.000] loaded puzzle 2
+@[    71.215 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.8770751639510832 max: 2.98708609222151
+init (recon) min: -1.8968344 max: 2.884554
+init MSE: 0.00030836313013207897
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232771443987598
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-011/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    74.370 +     3.155] loaded init/goal
+@[    74.370 +     0.000] start planning
+@[    74.370 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-011/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-011/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-011/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-011/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    74.543 +     0.173] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-007
+in ama3-planner 2
+@[    74.543 +     0.000] loaded puzzle 2
+@[    74.543 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.8770751639510832 max: 2.9983655876925748
+init (recon) min: -1.9122764 max: 2.9082494
+init MSE: 0.000286359294494415
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327715805739976
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-007/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    77.947 +     3.403] loaded init/goal
+@[    77.947 +     0.000] start planning
+@[    77.947 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-007/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-007/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-007/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-007/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    78.119 +     0.173] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-002
+in ama3-planner 2
+@[    78.120 +     0.000] loaded puzzle 2
+@[    78.120 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.930058561328005 max: 3.1288707891593632
+init (recon) min: -1.9358515 max: 2.9351525
+init MSE: 0.0003161492684244427
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232771067462283
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-002/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    81.390 +     3.270] loaded init/goal
+@[    81.390 +     0.000] start planning
+@[    81.390 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-002/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-002/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-002/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-002/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    81.564 +     0.174] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-005
+in ama3-planner 2
+@[    81.564 +     0.000] loaded puzzle 2
+@[    81.564 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9382502640929606 max: 3.0022268296181864
+init (recon) min: -1.9020693 max: 3.0412846
+init MSE: 0.0003467683061284408
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327712537888735
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-005/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    85.063 +     3.499] loaded init/goal
+@[    85.063 +     0.000] start planning
+@[    85.063 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-005/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-005/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-005/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-005/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    85.239 +     0.176] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-001
+in ama3-planner 2
+@[    85.239 +     0.000] loaded puzzle 2
+@[    85.239 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9381339643739712 max: 3.156333117788307
+init (recon) min: -1.9227475 max: 3.0059361
+init MSE: 0.0002914610952181947
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232770835916207
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-001/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    88.592 +     3.353] loaded init/goal
+@[    88.592 +     0.000] start planning
+@[    88.592 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-001/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-001/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-001/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-001/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    88.766 +     0.175] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-006
+in ama3-planner 2
+@[    88.767 +     0.000] loaded puzzle 2
+@[    88.767 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9550954102128109 max: 3.156333117788307
+init (recon) min: -1.9980501 max: 2.97185
+init MSE: 0.00032369040990629804
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327720773260717
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-006/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    92.368 +     3.601] loaded init/goal
+@[    92.368 +     0.000] start planning
+@[    92.368 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-006/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-006/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-006/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-006/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    92.543 +     0.175] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-010
+in ama3-planner 2
+@[    92.543 +     0.000] loaded puzzle 2
+@[    92.543 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.1481318950188513 max: 3.156333117788307
+init (recon) min: -2.1297588 max: 3.1442327
+init MSE: 0.000293648914401627
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232771177393152
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-010/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    96.000 +     3.458] loaded init/goal
+@[    96.000 +     0.000] start planning
+@[    96.001 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-010/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-010/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-010/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-010/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[    96.175 +     0.174] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-019
+in ama3-planner 2
+@[    96.175 +     0.000] loaded puzzle 2
+@[    96.175 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9381339643739712 max: 3.216307662910465
+init (recon) min: -1.9515401 max: 3.0391917
+init MSE: 0.00034795550712538915
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327715851274033
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-019/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[    99.918 +     3.743] loaded init/goal
+@[    99.918 +     0.000] start planning
+@[    99.918 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-019/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-019/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-019/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-019/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   100.101 +     0.183] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-017
+in ama3-planner 2
+@[   100.101 +     0.000] loaded puzzle 2
+@[   100.101 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.125108357064033 max: 3.149249323008702
+init (recon) min: -2.1082501 max: 3.2013083
+init MSE: 0.0003588277126653717
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.000323277045428929
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-017/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[   103.677 +     3.575] loaded init/goal
+@[   103.677 +     0.000] start planning
+@[   103.677 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-017/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-017/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-017/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-017/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   103.850 +     0.174] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-015
+in ama3-planner 2
+@[   103.850 +     0.000] loaded puzzle 2
+@[   103.850 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -2.125108357064033 max: 3.156333117788307
+init (recon) min: -2.1198401 max: 3.16333
+init MSE: 0.00030658342481437565
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327720575670287
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-015/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[   107.635 +     3.784] loaded init/goal
+@[   107.635 +     0.000] start planning
+@[   107.635 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-015/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-015/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-015/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-015/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   107.814 +     0.179] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-000
+in ama3-planner 2
+@[   107.814 +     0.000] loaded puzzle 2
+@[   107.814 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9382502640929606 max: 3.0022268296181864
+init (recon) min: -1.9514285 max: 3.0484028
+init MSE: 0.0003464773809559037
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232770881332509
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-000/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[   111.463 +     3.649] loaded init/goal
+@[   111.463 +     0.000] start planning
+@[   111.463 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-000/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-000/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-000/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-000/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   111.638 +     0.175] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-008
+in ama3-planner 2
+@[   111.638 +     0.000] loaded puzzle 2
+@[   111.638 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.8770751639510832 max: 2.98708609222151
+init (recon) min: -1.9007968 max: 2.9293394
+init MSE: 0.0003176508837389594
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327714330241704
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-008/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[   115.608 +     3.970] loaded init/goal
+@[   115.608 +     0.000] start planning
+@[   115.608 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-008/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-008/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-008/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-008/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   115.783 +     0.174] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-015
+in ama3-planner 2
+@[   115.783 +     0.000] loaded puzzle 2
+@[   115.783 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9382502640929606 max: 3.216307662910465
+init (recon) min: -1.9797928 max: 3.0111852
+init MSE: 0.00032547859479503053
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232771306947524
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-015/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[   119.569 +     3.787] loaded init/goal
+@[   119.569 +     0.000] start planning
+@[   119.570 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-015/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-015/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-015/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-015/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   119.749 +     0.180] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-013
+in ama3-planner 2
+@[   119.749 +     0.000] loaded puzzle 2
+@[   119.749 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9163299400142446 max: 3.216307662910465
+init (recon) min: -1.9434003 max: 3.0140333
+init MSE: 0.0003223693439876764
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232772729155627
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-013/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[   123.757 +     4.007] loaded init/goal
+@[   123.757 +     0.000] start planning
+@[   123.757 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-013/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-013/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-013/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-013/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   123.934 +     0.177] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-007
+in ama3-planner 2
+@[   123.934 +     0.000] loaded puzzle 2
+@[   123.934 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.930058561328005 max: 2.9840983285236162
+init (recon) min: -1.9718294 max: 2.9550762
+init MSE: 0.00029855101652356375
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327713064974814
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-007/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[   127.840 +     3.906] loaded init/goal
+@[   127.840 +     0.000] start planning
+@[   127.840 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-007/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-007/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-007/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-007/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   128.016 +     0.176] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-004
+in ama3-planner 2
+@[   128.016 +     0.000] loaded puzzle 2
+@[   128.016 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9382502640929606 max: 3.222899560832561
+init (recon) min: -1.9518822 max: 2.9875264
+init MSE: 0.0002968790085733595
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.0003232770457461029
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-004/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[   131.938 +     3.922] loaded init/goal
+@[   131.938 +     0.000] start planning
+@[   131.938 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-004/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-004/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-004/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-004/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   132.112 +     0.174] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-006
+in ama3-planner 2
+@[   132.112 +     0.000] loaded puzzle 2
+@[   132.112 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.8788883734696935 max: 3.0022268296181864
+init (recon) min: -1.8981547 max: 3.0744739
+init MSE: 0.0003336682602176701
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327718769560235
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-006/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[   136.333 +     4.220] loaded init/goal
+@[   136.333 +     0.000] start planning
+@[   136.333 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-006/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-006/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-006/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/014-006/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   136.508 +     0.175] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-013
+in ama3-planner 2
+@[   136.508 +     0.000] loaded puzzle 2
+@[   136.508 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.930058561328005 max: 3.216307662910465
+init (recon) min: -1.9437765 max: 3.076653
+init MSE: 0.0003196424740046159
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327715110418105
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-013/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[   140.551 +     4.043] loaded init/goal
+@[   140.551 +     0.000] start planning
+@[   140.551 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-013/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-013/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-013/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-013/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   140.742 +     0.191] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-016
+in ama3-planner 2
+@[   140.742 +     0.000] loaded puzzle 2
+@[   140.742 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9550954102128109 max: 2.9840983285236162
+init (recon) min: -2.0043802 max: 2.948752
+init MSE: 0.0003006212444915054
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327713772193993
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-016/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[   145.164 +     4.422] loaded init/goal
+@[   145.164 +     0.000] start planning
+@[   145.165 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-016/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-016/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-016/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-016/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   145.339 +     0.175] finished generating problem
+ok
+sub_problem_dir
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-009
+in ama3-planner 2
+@[   145.339 +     0.000] loaded puzzle 2
+@[   145.339 +     0.000] loading init/goal
+RRRR1111
+RRRR2222
+RRRR3333
+RRRR4444
+init (input) min: -1.9382502640929606 max: 3.009809684373118
+init (recon) min: -1.9290544 max: 3.0353322
+init MSE: 0.00030917402845718746
+goal (input) min: -2.146440791804289 max: 3.158903413052018
+goal (recon) min: -2.1137633 max: 3.1271958
+goal MSE: 0.00032327707590670753
+RRRR5555
+problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-009/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_init_goal_reconstruction.1.png
+RRRR6666
+(2, 48, 48)
+threshold value: 0.25
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.125
+0 images have some panels which are unlike any panels
+0 images have all panels which match exactly 1 panel each
+2 images have some panels which match >2 panels
+threshold value: 0.0625
+0 images have some panels which are unlike any panels
+2 images have all panels which match exactly 1 panel each
+0 images have some panels which match >2 panels
+threshold found
+0 images have duplicated tiles
+2 images have no duplicated tiles
+RRRR7777
+@[   149.504 +     4.164] loaded init/goal
+@[   149.504 +     0.000] start planning
+@[   149.504 +     0.000] start generating problem
+['helper/ama3-problem.sh', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-009/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig', 'problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-009/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl']
+helper/ama3-problem.sh problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-009/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.ig problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-009/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl
+@[   149.719 +     0.215] finished generating problem
+ok
+AA3 
+<module 'options' from '/g100_work/uBS21_InfGer_0/latplan5-fresh/downward/src/translate/options.py'>
+OK1
+['main.py', '/g100_work/uBS21_InfGer_0/latplan5-fresh/samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052/domain.pddl', '/g100_work/uBS21_InfGer_0/latplan5-fresh/problem-generators/backup-propositional/vanilla/puzzle-mnist-3-3/007-000/ama3_samples_puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2_logs_05-06T11:21:55.052_domain_blind_problem.pddl', '--operation=remove_duplicates']
+OK2
+OK3
+hh1
+Parsing...
+Parsing: [1.590s CPU, 1.591s wall-clock]
+hh2
+SELF REQUIREMENTSsss

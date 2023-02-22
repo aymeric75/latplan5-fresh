@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import latplan.main
 from train_common import parameters
 
