@@ -3,25 +3,22 @@
 
 pwdd=$(pwd)
 
-cd $pwdd/problem-generators/backup-propositional/
 
 shopt -s extglob
 
-for dir in vanilla/*/
+for dir in $pwdd/problem-generators/backup-propositional/vanilla/*/
 do
     current_dir=${dir%*/}
-    echo $current_dir
 
 
     cd $current_dir
 
     #pwd
-    ls
+    
 
 
     for subdir in */
     do
-        echo $subdir
         
         cd $subdir
         
@@ -41,3 +38,5 @@ do
 done
 
 shopt -u extglob
+
+cd $pwdd

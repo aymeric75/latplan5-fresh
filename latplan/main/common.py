@@ -134,19 +134,27 @@ def add_common_arguments(subparser,task,objs=False):
                            default="0",
                            help="A string which denote the index of the invariant to test")
 
-
-
     subparser.add_argument("--lab_weights",
                            nargs='?',
                            default="0",
                            help="A string which denote the label (part of if) to give to the weights files")
 
-
-
     subparser.add_argument("--moduloepoch",
                            nargs='?',
                            default="0",
                            help="A string which denote modulo epoch for saving the weights")
+
+
+    subparser.add_argument("--resumee",
+                           nargs='?',
+                           default="0",
+                           help="A string which denote if we resume a training")
+
+    subparser.add_argument("--start_epoch",
+                           nargs='?',
+                           default="0",
+                           help="start epoch")
+
 
 
 
@@ -425,6 +433,18 @@ def run(path,transitions,extra=None):
     if args.moduloepoch != "" and args.moduloepoch != None:
         parameters["moduloepoch"]=int(args.moduloepoch)
 
+    parameters["resumee"] = False
+    if args.resumee != "" and args.resumee != None:
+        parameters["resumee"] = True if (args.resumee == "True")  else False
+
+
+    parameters["start_epoch"] = 0
+    if args.start_epoch != "" and args.start_epoch != None:
+        parameters["start_epoch"] = int(args.start_epoch)
+
+
+    
+
     if 'report' in args.mode:
 
         net = latplan.model.load(path)
@@ -499,7 +519,7 @@ def run(path,transitions,extra=None):
 
 
 
-        task = curry(nn_task, latplan.model.get(parameters["aeclass"]), path, train, train, val, val, parameters, False) 
+        task = curry(nn_task, latplan.model.get(parameters["aeclass"]), path, train, train, val, val, parameters, parameters["resumee"]) 
         task()
 
         f = open(path+"/val_metrics_"+parameters["label"]+".txt", "a")

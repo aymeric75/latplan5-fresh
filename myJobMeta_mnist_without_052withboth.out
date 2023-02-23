@@ -1,5 +1,5 @@
 Default float: float32
-{'mode': 'learn', 'type': 'mnist', 'width': 3, 'height': 3, 'num_examples': 5000, 'aeclass': 'CubeSpaceAE_AMA4Conv', 'comment': 'kltune2', 'hash': '05-06T11:21:55.052WITHBOTH', 'label': 'mnist_without_052WITHBOTH', 'loadweights': 'False', 'nbepochs': '2001', 'invindex': '0', 'round_number': '1', 'lab_weights': '0', 'moduloepoch': '400'}
+{'mode': 'learn', 'type': 'mnist', 'width': 3, 'height': 3, 'num_examples': 5000, 'aeclass': 'CubeSpaceAE_AMA4Conv', 'comment': 'kltune2', 'hash': '05-06T11:21:55.052WITHBOTH', 'label': 'mnist_without_052WITHBOTH', 'loadweights': 'False', 'nbepochs': '2001', 'invindex': '0', 'round_number': '1', 'lab_weights': '0', 'moduloepoch': '400', 'resumee': 'resumee', 'start_epoch': '0'}
 loaded. picsize: [48, 48]
 (5000, 2, 48, 48, 1)
 normalized shape: (48, 48, 1) (48, 48, 1)
@@ -33,31 +33,31 @@ cleared tf session
 Building networks
 building a convolutional encoder
 pool per layer: 1 depth: 2 total pool: 1 H: 48 W: 48 dH: 0 dW: 0
-<keras.layers.convolutional.Conv2D object at 0x14edec1f62d0>
-[0, 48, 48, 1] -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2D object at 0x14edec1f62d0>
-<keras.layers.normalization.BatchNormalization object at 0x14edec4aea90>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14edec4aea90>
-<keras.layers.core.Dropout object at 0x14edec4ae750>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14edec4ae750>
-<keras.layers.convolutional.Conv2D object at 0x14edec4aea10>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2D object at 0x14edec4aea10>
-<keras.layers.normalization.BatchNormalization object at 0x14edec4aee90>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14edec4aee90>
-<keras.layers.core.Dropout object at 0x14edec4aec90>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14edec4aec90>
+<keras.layers.convolutional.Conv2D object at 0x14e3c2b0cd90>
+[0, 48, 48, 1] -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2D object at 0x14e3c2b0cd90>
+<keras.layers.normalization.BatchNormalization object at 0x14e3c2b16410>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14e3c2b16410>
+<keras.layers.core.Dropout object at 0x14e3c2b161d0>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14e3c2b161d0>
+<keras.layers.convolutional.Conv2D object at 0x14e3c2b16390>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2D object at 0x14e3c2b16390>
+<keras.layers.normalization.BatchNormalization object at 0x14e3c2b16810>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14e3c2b16810>
+<keras.layers.core.Dropout object at 0x14e3c2b16610>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14e3c2b16610>
 latent space shape is (48, 48, 32) : 300 propositions in total
 building a convolutional decoder
 pool per layer: 1 depth: 2 total pool: 1 H: 48 W: 48 dH: 0 dW: 0
-<keras.layers.core.Reshape object at 0x14edec4c6650>
-[0, 48, 48, 32] -> (0, 48, 48, 32) : <keras.layers.core.Reshape object at 0x14edec4c6650>
-<keras.layers.convolutional.Conv2DTranspose object at 0x14edec4c6a50>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2DTranspose object at 0x14edec4c6a50>
-<keras.layers.normalization.BatchNormalization object at 0x14edec4c68d0>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14edec4c68d0>
-<keras.layers.core.Dropout object at 0x14edec4cc150>
-(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14edec4cc150>
-<keras.layers.convolutional.Conv2DTranspose object at 0x14edec4cc090>
-(0, 48, 48, 32) -> (0, 48, 48, 1) : <keras.layers.convolutional.Conv2DTranspose object at 0x14edec4cc090>
+<keras.layers.core.Reshape object at 0x14e3c2b1d350>
+[0, 48, 48, 32] -> (0, 48, 48, 32) : <keras.layers.core.Reshape object at 0x14e3c2b1d350>
+<keras.layers.convolutional.Conv2DTranspose object at 0x14e3c2b1d610>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2DTranspose object at 0x14e3c2b1d610>
+<keras.layers.normalization.BatchNormalization object at 0x14e3c2b1d6d0>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14e3c2b1d6d0>
+<keras.layers.core.Dropout object at 0x14e3c2b1d5d0>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14e3c2b1d5d0>
+<keras.layers.convolutional.Conv2DTranspose object at 0x14e3c2b1d9d0>
+(0, 48, 48, 32) -> (0, 48, 48, 1) : <keras.layers.convolutional.Conv2DTranspose object at 0x14e3c2b1d9d0>
 Network built
 Building auxiliary networks
 Auxiliary network built
@@ -65,7 +65,94 @@ Compiling networks
 there are 1 networks.
 there are 1 optimizers.
 there are 1 losses.
-compiling <keras.engine.training.Model object at 0x14edc765c050> with <keras_radam.optimizers.RAdam object at 0x14edc705b710>, <function BaseActionMixinAMA4Plus._build_primary.<locals>.loss at 0x14edc768bf80>.
+compiling <keras.engine.training.Model object at 0x14e3c08c89d0> with <keras_radam.optimizers.RAdam object at 0x14e3c02ca050>, <function BaseActionMixinAMA4Plus._build_primary.<locals>.loss at 0x14e3c08f7f80>.
+Network compiled
+Saving the network to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052WITHBOTH/
+saving additional networks
+Network saved
+Saving the network to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052WITHBOTH/
+saving additional networks
+Network saved
+Saving the network to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052WITHBOTH/
+saving additional networks
+Network saved
+Saving the network to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052WITHBOTH/
+saving additional networks
+Network saved
+Saving the network to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052WITHBOTH/
+saving additional networks
+Network saved
+Saving the network to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052WITHBOTH/
+saving additional networks
+Network saved
+Default float: float32
+{'mode': 'learn', 'type': 'mnist', 'width': 3, 'height': 3, 'num_examples': 5000, 'aeclass': 'CubeSpaceAE_AMA4Conv', 'comment': 'kltune2', 'hash': '05-06T11:21:55.052WITHBOTH', 'label': 'mnist_without_052WITHBOTH', 'loadweights': 'False', 'nbepochs': '2001', 'invindex': '0', 'round_number': '2', 'lab_weights': '0', 'moduloepoch': '400', 'resumee': 'resumee', 'start_epoch': '0'}
+loaded. picsize: [48, 48]
+(5000, 2, 48, 48, 1)
+normalized shape: (48, 48, 1) (48, 48, 1)
+[['140', '144', '154', 'NoneOfThose'], ['104', '110', '197', 'NoneOfThose'], ['123', '240', '289', '45', '53'], ['104', '110', '197', '123', '45'], ['104', '114', '123', '289', '45'], ['104', '197', '123', '45', '140'], ['104', '197', '123', '45', '7'], ['104', '123', '289', '45', '297'], ['110', '123', '45', '144', '154'], ['110', '123', '45', '53', '154'], ['119', '123', '289', '45', '144'], ['119', '123', '289', '45', '53'], ['123', '45', '140', '144', '154'], ['123', '45', '53', '140', '154'], ['123', '45', '144', '154', '7'], ['123', '240', '289', '45', '144'], ['123', '45', '53', '154', '7']]
+class precedence list:
+  <class 'latplan.model.ConvolutionalConcreteDetNormalizedLogitAddBidirectionalTransitionAEPlus'>
+  <class 'latplan.mixins.encoder_decoder.StridedConvolutionalMixin'>
+  <class 'latplan.mixins.encoder_decoder.ConvolutionalMixin'>
+  <class 'latplan.model.ConcreteDetNormalizedLogitAddBidirectionalTransitionAEPlus'>
+  <class 'latplan.model.DetActionMixin'>
+  <class 'latplan.model.NormalizedLogitAddBidirectionalMixin'>
+  <class 'latplan.model.NormalizedLogitAddPreconditionMixin'>
+  <class 'latplan.model.NormalizedLogitAddEffectMixin'>
+  <class 'latplan.model.LogitEffectMixin'>
+  <class 'latplan.model.BaseActionMixinAMA4Plus'>
+  <class 'latplan.model.BidirectionalMixin'>
+  <class 'latplan.model.PreconditionMixin'>
+  <class 'latplan.model.EffectMixin'>
+  <class 'latplan.model.BaseActionMixin'>
+  <class 'latplan.model.TransitionWrapper'>
+  <class 'latplan.model.StateAE'>
+  <class 'latplan.mixins.latent.ConcreteLatentMixin'>
+  <class 'latplan.model.EarlyStopMixin'>
+  <class 'latplan.mixins.encoder_decoder.FullConnectedMixin'>
+  <class 'latplan.mixins.encoder_decoder.EncoderDecoderMixin'>
+  <class 'latplan.model.AE'>
+  <class 'latplan.network.Network'>
+  <class 'object'>
+clearning tf session
+cleared tf session
+Building networks
+building a convolutional encoder
+pool per layer: 1 depth: 2 total pool: 1 H: 48 W: 48 dH: 0 dW: 0
+<keras.layers.convolutional.Conv2D object at 0x14f7f1594f10>
+[0, 48, 48, 1] -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2D object at 0x14f7f1594f10>
+<keras.layers.normalization.BatchNormalization object at 0x14f7f159d590>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14f7f159d590>
+<keras.layers.core.Dropout object at 0x14f7f159d350>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14f7f159d350>
+<keras.layers.convolutional.Conv2D object at 0x14f7f159d510>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2D object at 0x14f7f159d510>
+<keras.layers.normalization.BatchNormalization object at 0x14f7f159d990>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14f7f159d990>
+<keras.layers.core.Dropout object at 0x14f7f159d790>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14f7f159d790>
+latent space shape is (48, 48, 32) : 300 propositions in total
+building a convolutional decoder
+pool per layer: 1 depth: 2 total pool: 1 H: 48 W: 48 dH: 0 dW: 0
+<keras.layers.core.Reshape object at 0x14f7f15a1150>
+[0, 48, 48, 32] -> (0, 48, 48, 32) : <keras.layers.core.Reshape object at 0x14f7f15a1150>
+<keras.layers.convolutional.Conv2DTranspose object at 0x14f7f15a1550>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.convolutional.Conv2DTranspose object at 0x14f7f15a1550>
+<keras.layers.normalization.BatchNormalization object at 0x14f7f15a1bd0>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.normalization.BatchNormalization object at 0x14f7f15a1bd0>
+<keras.layers.core.Dropout object at 0x14f7f15a1410>
+(0, 48, 48, 32) -> (0, 48, 48, 32) : <keras.layers.core.Dropout object at 0x14f7f15a1410>
+<keras.layers.convolutional.Conv2DTranspose object at 0x14f7f15a1c10>
+(0, 48, 48, 32) -> (0, 48, 48, 1) : <keras.layers.convolutional.Conv2DTranspose object at 0x14f7f15a1c10>
+Network built
+Building auxiliary networks
+Auxiliary network built
+Compiling networks
+there are 1 networks.
+there are 1 optimizers.
+there are 1 losses.
+compiling <keras.engine.training.Model object at 0x14f7cc6d4990> with <keras_radam.optimizers.RAdam object at 0x14f7cc0d6050>, <function BaseActionMixinAMA4Plus._build_primary.<locals>.loss at 0x14f7cc704ef0>.
 Network compiled
 Saving the network to samples/puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2/logs/05-06T11:21:55.052WITHBOTH/
 saving additional networks

@@ -4,14 +4,14 @@
 #SBATCH --gres=gpu:1
 #SBATCH --partition=g100_usr_interactive
 #SBATCH --account=uBS23_InfGer
-#SBATCH --time=05:00:00
+#SBATCH --time=08:00:00
 #SBATCH --mem=64G
 ## SBATCH --ntasks-per-socket=1
 
 
 ## PUZZLE MNIST
-#SBATCH --error=myJobMeta_mnist_without_052.err
-#SBATCH --output=myJobMeta_mnist_without_052.out
+#SBATCH --error=myJobMeta_mnist_without_052withvars.err
+#SBATCH --output=myJobMeta_mnist_without_052withvars.out
 task="puzzle"
 type="mnist"
 width_height="3 3"
@@ -24,14 +24,14 @@ baselabel="mnist_"$suffix
 after_sample="puzzle_mnist_3_3_5000_CubeSpaceAE_AMA4Conv_kltune2"
 pb_subdir="puzzle-mnist-3-3"
 
-conf_folder="05-06T11:21:55.052"
+#conf_folder="05-06T11:21:55.052"
 #conf_folder=05-06T11:21:55.052WITHBOTH
-#conf_folder=05-06T11:21:55.052WITHVARS
+conf_folder=05-06T11:21:55.052WITHVARS
 
 pwdd=$(pwd)
 #label=${baselabel}_${conf_folder: -3}
-label=mnist_without_052
-#label=mnist_without_052WITHVARS
+#label=mnist_without_052
+label=mnist_without_052WITHVARS
 #label=mnist_without_052WITHBOTH
 problem_file="ama3_samples_${after_sample}_logs_${conf_folder}_domain_blind_problem.pddl"
 problems_dir=problem-generators/backup-propositional/vanilla/$pb_subdir
@@ -40,10 +40,12 @@ domain_file=$domain_dir/domain.pddl
 
 loadweights="False"
 nbepochs="2001"
-numstep="2"
+numstep="4"
 moduloepoch="400"
 
+start_epoch="0"
 
+resumee="False"
 
 ###    label=${baselabel}_${conf_folder: -3}
 ###    where baselabel (type_without_NumOfConfigRep)
@@ -202,17 +204,16 @@ if [ $numstep -eq "4" ]; then
 
     
 
-    echo "start new training" > $pwdd/$domain_dir/val_metrics_$label.txt
+    #echo "start new training" > $pwdd/$domain_dir/val_metrics_$label.txt
 
-    echo "planning perfs" > $pwdd/$domain_dir/val_perfs_$label.txt
-
-    for i in {1..3}
+    for i in {1..2}
     do
+        
         echo "start ROUND : $i, writting perfs metrics..." >> $pwdd/$domain_dir/val_metrics_$label.txt
 
         # ### TRAINING AND (normal) PERF
         invindex=0
-        ./train_kltune.py learn $task $type $width_height $nb_examples CubeSpaceAE_AMA4Conv kltune2 --hash $conf_folder --label $label --loadweights $loadweights --nbepochs $nbepochs --invindex $invindex --round_number $i --moduloepoch $moduloepoch
+        ./train_kltune.py learn $task $type $width_height $nb_examples CubeSpaceAE_AMA4Conv kltune2 --hash $conf_folder --label $label --loadweights $loadweights --nbepochs $nbepochs --invindex $invindex --round_number $i --moduloepoch $moduloepoch --resumee resumee
     
         continue
 
@@ -230,20 +231,24 @@ if [ $numstep -eq "5" ]; then
     echo "planning perfs" > $pwdd/$domain_dir/val_perfs_$label.txt
 
     # for each seed
-    for i in {1..3}
+    for i in {1..1}
     do
         # for each epoch number
         #   parameters["moduloepoch"] must be the step
 
         echo "Training with seed $i" >> $pwdd/$domain_dir/val_perfs_$label.txt
             
-        for epoch in {0..2000..200}
+        for epoch in {600..1200..200}
         do
+            echo "epooch $epoch"
             # qu'est ce que tu fais là ?
             #   ==> 
             # clean all problemes files
+            cd $pwdd
             ./clean-problems.sh
+            cd $pwdd
 
+            
             # pour chaque poids, generate new domain.pddl (et reformat) et generate all problems (et pas de reformat)
             generate_and_reformat_domain
 
@@ -274,11 +279,12 @@ if [ $numstep -eq "5" ]; then
 
             for dir_prob in $problems_dir/*/
             do
-
+                ####################################################
                 ### USE THE PDDL FILES to check for plan solutions
-                ###
+                ####################################################
 
                 current_problems_dir=${dir_prob%*/}
+                echo "current_problems_dir $current_problems_dir"
 
                 # if a 7 step prob
                 OUTPUT=$(python downward/fast-downward.py $pwdd/$domain_file $pwdd/$current_problems_dir/$problem_file --search "astar(blind())")
@@ -304,13 +310,16 @@ if [ $numstep -eq "5" ]; then
                     fi
                 fi
 
-
+                #########################################################################
                 ### REGENERATE A SAS corresponding to current domain.pddl + problem.pddl
-                ###
+                #########################################################################
 
                 cd $pwdd/downward/src/translate/
                 ### Generate SAS file
                 OUTPUT=$(python translate.py $pwdd/$domain_file $pwdd/$current_problems_dir/$problem_file --sas-file output_$label.sas)
+
+                echo "OUTPPUUUTTT "
+                echo $OUTPUT
 
                 numb_vars=$(echo $OUTPUT | grep "Translator variables:" | grep -Eo '[0-9]{1,4}')
 
@@ -326,22 +335,25 @@ if [ $numstep -eq "5" ]; then
                     counter_gen_mutex=$((counter_gen_mutex+1))
                 fi
 
-
                 cd $pwdd
 
             done
 
+            if ! [ $counter_gen_vars -eq 0 ]; then
+                mean_nb_variables_generated=$((total_nb_variables_generated / counter_gen_vars))
+            else
+                mean_nb_variables_generated=0
+            fi
 
-            mean_nb_variables_generated=$((total_nb_variables_generated / counter_gen_vars))
-            mean_nb_mutexes_generated=$((total_nb_mutexes_generated / counter_gen_mutex))
+            if ! [ $counter_gen_mutex -eq 0 ]; then
+                mean_nb_mutexes_generated=$((total_nb_mutexes_generated / counter_gen_mutex))
+            else
+                mean_nb_mutexes_generated=0
+            fi
+            
 
-            echo "round $i, epoch $j : counter_solSeven $counter_solSeven counter_optSeven $counter_optSeven counter_solFourteen $counter_solFourteen counter_optFourteen $counter_optFourteen mean_nb_variables_generated $mean_nb_variables_generated mean_nb_mutexes_generated $mean_nb_mutexes_generated" >> $pwdd/$domain_dir/val_perfs.txt
-
+            echo "round $i, epoch $epoch : #solSeven $counter_solSeven #optSeven $counter_optSeven #solFourteen $counter_solFourteen #optFourteen $counter_optFourteen mean_nb_variables_generated $mean_nb_variables_generated mean_nb_mutexes_generated $mean_nb_mutexes_generated" >> $pwdd/$domain_dir/val_perfs_$label.txt
 
         done
-
-
     done
-
-
 fi
