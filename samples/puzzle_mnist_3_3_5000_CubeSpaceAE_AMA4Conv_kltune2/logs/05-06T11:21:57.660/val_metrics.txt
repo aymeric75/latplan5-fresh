@@ -1,0 +1,12 @@
+
+newTraining
+[v] elbo 1.75e+07  kl_a_z0     35.2  kl_a_z1     35.1  kl_z0      169  kl_z0z3      242  kl_z1      169  kl_z1z2      242  loss 1.75e+07  pdiff_z0z1    0.142  pdiff_z0z2    0.225  pdiff_z0z3    0.285  pdiff_z1z2    0.285  tau        5  x0y0 8.73e+06  x0y3 8.78e+06  x1y1 8.74e+06  x1y2 8.77e+06
+[v] elbo 1.61e+07  kl_a_z0     60.1  kl_a_z1     60.1  kl_z0      199  kl_z0z3      159  kl_z1      199  kl_z1z2      159  loss 1.61e+07  pdiff_z0z1    0.168  pdiff_z0z2    0.104  pdiff_z0z3    0.202  pdiff_z1z2    0.202  tau        5  x0y0 8.01e+06  x0y3 8.08e+06  x1y1 8.01e+06  x1y2 8.09e+06
+[v] elbo 1.71e+07  kl_a_z0     54.2  kl_a_z1     54.3  kl_z0      226  kl_z0z3      124  kl_z1      226  kl_z1z2      124  loss 1.71e+07  pdiff_z0z1    0.159  pdiff_z0z2   0.0914  pdiff_z0z3    0.194  pdiff_z1z2    0.194  tau     4.99  x0y0 8.54e+06  x0y3 8.62e+06  x1y1 8.53e+06  x1y2 8.63e+06
+
+newTraining
+[v] elbo 1.88e+05  kl_a_z0     35.2  kl_a_z1     35.1  kl_z0      169  kl_z0z3      242  kl_z1      169  kl_z1z2      242  loss 1.75e+07  pdiff_z0z1    0.142  pdiff_z0z2    0.225  pdiff_z0z3    0.285  pdiff_z1z2    0.285  tau        5  x0y0 8.73e+06  x0y3 8.78e+06  x1y1 8.74e+06  x1y2 8.77e+06
+[v] elbo 1.01e+05  kl_a_z0     60.1  kl_a_z1     60.1  kl_z0      199  kl_z0z3      159  kl_z1      199  kl_z1z2      159  loss 1.61e+07  pdiff_z0z1    0.168  pdiff_z0z2    0.104  pdiff_z0z3    0.202  pdiff_z1z2    0.202  tau        5  x0y0 8.01e+06  x0y3 8.08e+06  x1y1 8.01e+06  x1y2 8.09e+06
+[v] elbo 1.02e+04  kl_a_z0     54.2  kl_a_z1     54.3  kl_z0      226  kl_z0z3      124  kl_z1      226  kl_z1z2      124  loss 1.71e+07  pdiff_z0z1    0.159  pdiff_z0z2   0.0914  pdiff_z0z3    0.194  pdiff_z1z2    0.194  tau     4.99  x0y0 8.54e+06  x0y3 8.62e+06  x1y1 8.53e+06  x1y2 8.63e+06
+
+newTraining

@@ -16,8 +16,8 @@ learn/events*
 /mnist_model/
 *.bin
 *.lprof
+*.h5
 /samples/table
-samples*/
 samplesBAK*/
 problem-instances/*/
 blocks*/

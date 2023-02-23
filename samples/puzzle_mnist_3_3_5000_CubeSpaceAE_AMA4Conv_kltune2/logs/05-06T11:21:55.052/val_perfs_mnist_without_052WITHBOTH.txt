@@ -1,0 +1,2 @@
+round 1, epoch 1000 : #solSeven 0 #optSeven 0 #solFourteen 0 #optFourteen 0 mean_nb_variables_generated 0 mean_nb_mutexes_generated 0
+round 1, epoch 1200 : #solSeven 0 #optSeven 0 #solFourteen 0 #optFourteen 0 mean_nb_variables_generated 0 mean_nb_mutexes_generated 0
